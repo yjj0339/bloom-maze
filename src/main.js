@@ -23,7 +23,9 @@ window.addEventListener('unhandledrejection', (e) => window.__errs.push('rejecti
 const $ = (id) => document.getElementById(id);
 
 const isCoarse = window.matchMedia('(pointer: coarse)').matches;
-const isMobile = isCoarse || (('ontouchstart' in window) && Math.min(window.innerWidth, window.innerHeight) < 900);
+const isTouchDevice = isCoarse || (navigator.maxTouchPoints || 0) > 0 || ('ontouchstart' in window);
+// 判定不能只靠单一信号：真手机三者齐备，模拟器可能只给其中一个
+const isMobile = isTouchDevice || Math.min(window.innerWidth, window.innerHeight) < 620;
 
 let isFresh = false;
 try { isFresh = !localStorage.getItem('bloom-maze-v1'); } catch (e) { isFresh = true; }
