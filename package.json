@@ -1,0 +1,13 @@
+{
+  "name": "bloom-maze",
+  "version": "1.0.0",
+  "private": true,
+  "description": "花庭迷宫 · BLOOM MAZE — 低多边形第一人称庭园迷宫（桌面 + 手机浏览器）",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "start": "node serve.mjs",
+    "dev": "node build.mjs && node serve.mjs"
+  }
+}
